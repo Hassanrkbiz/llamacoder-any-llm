@@ -19,7 +19,7 @@
     "@conform-to/zod": "^1.1.5",
     "@heroicons/react": "^2.1.5",
     "@openrouter/ai-sdk-provider": "^0.0.5",
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^5.22.0",
     "@radix-ui/react-radio-group": "^1.2.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-switch": "^1.1.0",

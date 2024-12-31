@@ -21,7 +21,7 @@
     "@openrouter/ai-sdk-provider": "^0.0.5",
     "@prisma/client": "^5.18.0",
     "@radix-ui/react-radio-group": "^1.2.0",
-    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
     "@vercel/og": "^0.6.2",

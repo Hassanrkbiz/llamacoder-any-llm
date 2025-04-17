@@ -33,13 +33,9 @@ export default function Home() {
     "initial" | "creating" | "created" | "updating" | "updated"
   >("initial");
   let [prompt, setPrompt] = useState("");
-  let [provider, setProvider] = useState(
-    localStorage.getItem("selectedProvider") ?? DEFAULT_LLM.provider,
-  );
+  let [provider, setProvider] = useState(DEFAULT_LLM.provider);
   console.log('pprovider', provider);
-  let [model, setModel] = useState(
-    localStorage.getItem("selectedModel") ?? DEFAULT_LLM.name,
-  );
+  let [model, setModel] = useState(DEFAULT_LLM.name);
   console.log('mmodel', model);
   let [selectedModel, setSelectedModel] = useState<ModelInfo | null>(null);
   let [apiKeys, setApiKeys] = useState({
@@ -58,6 +54,23 @@ export default function Home() {
     Ollama: "",
     Cohere: "",
   });
+    // Load saved values from localStorage after component mounts (client-side only)
+  useEffect(() => {
+    const savedProvider = localStorage.getItem("selectedProvider");
+    const savedModel = localStorage.getItem("selectedModel");
+    
+    if (savedProvider) setProvider(savedProvider);
+    if (savedModel) setModel(savedModel);
+  }, []); // Empty dependency array = runs only once on mount
+
+  // Save to localStorage when provider or model changes
+  useEffect(() => {
+    localStorage.setItem("selectedProvider", provider);
+  }, [provider]);
+
+  useEffect(() => {
+    localStorage.setItem("selectedModel", model);
+  }, [model]);
   let [apiKey, setApiKey] = useState("");
   let [shadcn, setShadcn] = useState(false);
   let [modification, setModification] = useState("");
